@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./ProjectsStyle/ImageUploader.css";
+import "./ImageUploader.css";
 import { toast } from "react-toastify";
 
 const ImageUploader = () => {
@@ -9,7 +9,7 @@ const ImageUploader = () => {
     // Fetch images from the backend
     const fetchImages = async () => {
         try {
-            const response = await fetch("http://localhost:30017/api/images/image");
+            const response = await fetch("http://localhost:30017/api/v1/images/image");
             if (!response.ok) {
                 throw new Error("Failed to fetch images");
             }
@@ -33,7 +33,7 @@ const ImageUploader = () => {
         formData.append("image", image);
 
         try {
-            const response = await fetch("http://localhost:30017/api/images/upload", {
+            const response = await fetch("http://localhost:30017/api/v1/images/upload", {
                 method: "POST",
                 body: formData,
             });
@@ -53,11 +53,12 @@ const ImageUploader = () => {
 
     // Handle Image Delete
     const handleDelete = async (id) => {
+        console.log(id);
         const confirmDelete = window.confirm("Are you sure you want to delete this image?");
         if (!confirmDelete) return;
 
         try {
-            const response = await fetch("http://localhost:30017/api/images/delete", {
+            const response = await fetch("http://localhost:30017/api/v1/images/delete", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
