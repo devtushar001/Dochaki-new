@@ -37,27 +37,28 @@ export const imageData = {
 
 export const categories = [
     {
-        img: "cafe_racer.jpg",
-        name: cafe_racer
+        img: cafe_racer,
+        name: "Cafe Racer"
     },
     {
-        img: "scrambler.jpg",
-        name: motor_bike
+        img: electric_bike,
+        name: "Scrambler"
     },
     {
-        img: "cruiser.jpg",
-        name: motorcycle_png
+        img: motor_bike,
+        name: "Cruiser"
     },
     {
-        img: "chopper.jpg",
-        name: chopper_bike
+        img: chopper_bike,
+        name: "Chopper"
     },
     {
-        img: "custom_paint_shop.jpg",
-        name: paint_job
+        img: paint_job,
+        name: "Custom Paint Shop"
     },
     {
-        img: "electric_bike.jpg",
-        name: electric_bike
+        img: electric_bike,
+        name: "Electric Bike"
     }
 ];
+

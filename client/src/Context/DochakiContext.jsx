@@ -1,4 +1,5 @@
 import React, { useState, createContext, useEffect } from "react";
+import { categories } from "../assets/dochakiData";
 
 export const DochakiContext = createContext(null);
 
@@ -11,7 +12,8 @@ const DochakiContextProvider = ({ children }) => {
 
     const contextValue = {
         navbar,
-        setNavbar
+        setNavbar,
+        categories
     };
 
     return (
