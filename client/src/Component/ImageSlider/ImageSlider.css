@@ -4,9 +4,9 @@
    justify-content: center;
    position: relative;
    margin-top: 15px;
-   width: 100vw;
    height: 300px;
    overflow: hidden;
+   box-sizing: border-box;
 }
 
 .image-wrapper {
