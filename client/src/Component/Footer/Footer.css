@@ -1,0 +1,21 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.footer .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 0.7fr 0.7fr;
+}
+
+.footer-copyright {
+    border-top: 1px solid #686868;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    align-content: center;
+    text-align: center;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}

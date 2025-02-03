@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+Link {
+    text-decoration: none;
+    list-style: none;
+    color: gray;
+}
+
+.no-style-link {
+    text-decoration: none;
+    color: gray;
+}
