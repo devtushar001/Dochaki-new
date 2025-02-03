@@ -22,7 +22,12 @@ export const addProjectController = async (req, res) => {
 export const getAllProjectsController = async (req, res) => {
     try {
         const projects = await projectModel.find();
-        res.status(200).json(projects);
+        console.log(projects)
+        res.status(200).json({
+            success: true,
+            message: `Data fetched successfully`,
+            projects
+        });
     } catch (error) {
         res.status(500).json({ error: "Failed to fetch projects", details: error.message });
     }
