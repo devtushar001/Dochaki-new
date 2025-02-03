@@ -1,0 +1,20 @@
+.show-image-data {
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.show-image-data .single-img {
+    width: 320px;
+    overflow: hidden;
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.show-image-data .single-img img {
+    width: 95%;
+}

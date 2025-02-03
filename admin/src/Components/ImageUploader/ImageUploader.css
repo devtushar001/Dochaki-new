@@ -5,25 +5,20 @@
     gap: 20px;
 }
 
-
-
 @media (max-width: 540px) {
     .image-uploader {
         grid-template-columns: 1fr;
-
     }
-
-
 }
 
 
 .image-uploader .inputs {
-    border: 1px solid gray;
+    border: 1px solid rgb(192, 192, 192);
     padding: 30px;
 }
 
 .image-uploader .inputs input {
-    border: 1px solid blue;
+    border: 1px solid rgb(0, 72, 131);
     width: 100%;
     align-content: center;
     text-align: center;
@@ -39,7 +34,7 @@
 
 /* Updated Outputs Section */
 .image-uploader .outputs {
-    border: 1px solid gray;
+    border: 1px solid rgb(173, 173, 173);
     padding: 10px;
     height: 320px;
     /* Set a fixed height */
@@ -57,7 +52,7 @@
     width: 210px;
     display: flex;
     flex-direction: column;
-    border: 1px solid gray;
+    border: 1px solid rgb(180, 180, 180);
     padding: 7px;
 }
 
@@ -69,7 +64,6 @@
     display: flex;
     gap: 3px;
 }
-
 
 @media (max-width: 540px) {
     .single-image-grid {
