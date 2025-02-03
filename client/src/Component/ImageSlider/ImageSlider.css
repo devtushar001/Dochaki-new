@@ -5,6 +5,7 @@
    position: relative;
    margin-top: 15px;
    height: 300px;
+   max-width: 100%;
    overflow: hidden;
    box-sizing: border-box;
 }
@@ -14,6 +15,8 @@
    justify-content: center;
    align-items: center;
    overflow: hidden;
+   width: 100%;
+   height: 100%;
 }
 
 .slide-image {
@@ -23,21 +26,65 @@
    border-radius: 10px;
 }
 
+/* Navigation Buttons */
 .slider-container .scroll-button {
    position: absolute;
-   padding: 35px;
+   padding: 20px;
    cursor: pointer;
    border: none;
-   background-color: rgba(255, 255, 255, 0.306);
+   background-color: rgba(255, 255, 255, 0.4);
    backdrop-filter: blur(10px);
+   transition: background 0.3s ease-in-out, transform 0.2s;
+   font-size: 18px;
+}
+
+.slider-container .scroll-button:hover {
+   background-color: rgba(255, 255, 255, 0.6);
+   transform: scale(1.1);
 }
 
 .slider-container .scroll-button.left {
-   left: 0;
+   left: 10px;
 }
 
 .slider-container .scroll-button.right {
-   right: 0;
+   right: 10px;
 }
 
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+   .slider-container {
+      height: 250px; /* Reduce height for tablets */
+   }
 
+   .slider-container .scroll-button {
+      padding: 18px;
+      font-size: 16px;
+   }
+}
+
+@media (max-width: 768px) {
+   .slider-container {
+      height: 200px; /* Adjust height for mobile */
+   }
+
+   .slide-image {
+      border-radius: 8px;
+   }
+
+   .slider-container .scroll-button {
+      padding: 15px;
+      font-size: 14px;
+   }
+}
+
+@media (max-width: 480px) {
+   .slider-container {
+      height: 180px; /* Smaller height for very small screens */
+   }
+
+   .slider-container .scroll-button {
+      padding: 12px;
+      font-size: 12px;
+   }
+}

@@ -1,12 +1,18 @@
 .navbar {
+    width: 100vw;
+    z-index: 9000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 35px;
     border-bottom: 1px solid rgba(0, 92, 145, 0.53);
+    position: fixed;
+    top: 0;
+    height: 72px;
+    background-color: aliceblue;
 }
 
 .navbar .left {
+    margin-left: 50px;
     width: 190px;
     display: flex;
     align-items: center;
@@ -48,4 +54,126 @@
 
 .navbar .left img:hover {
     transform: translateY(-2px);
+}
+
+.navbar .right {
+    margin-right: 60px;
+}
+
+.navbar {
+    width: 100vw;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 92, 145, 0.53);
+    position: fixed;
+    top: 0;
+    height: 72px;
+    background-color: aliceblue;
+    padding: 0 20px; /* Added padding for better spacing */
+    box-sizing: border-box;
+}
+
+/* Left side (menu, search, location) */
+.navbar .left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Adjust menu icon spacing */
+.navbar .left .menu-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.navbar .left .menu-icon img {
+    height: 25px;
+    transition: all ease-in-out 0.2s;
+}
+
+.navbar .left .menu-icon span {
+    font-size: 19px;
+    font-weight: bold;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+/* Logo */
+.navbar .right img {
+    height: 50px;
+    cursor: pointer;
+}
+
+/* Hover effect for icons */
+.navbar .left img:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .navbar {
+        height: 65px;
+        padding: 0 15px;
+    }
+
+    .navbar .left {
+        gap: 10px;
+    }
+
+    .navbar .left .menu-icon span {
+        font-size: 17px;
+    }
+
+    .navbar .right img {
+        height: 45px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        height: 60px;
+        padding: 0 10px;
+    }
+
+    .navbar .left {
+        gap: 8px;
+    }
+
+    .navbar .left .menu-icon span {
+        font-size: 16px;
+    }
+
+    .navbar .left img {
+        height: 22px;
+    }
+
+    .navbar .right img {
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        height: 55px;
+        padding: 0 8px;
+    }
+
+    .navbar .left {
+        gap: 5px;
+    }
+
+    .navbar .left .menu-icon span {
+        font-size: 14px;
+    }
+
+    .navbar .left img {
+        height: 20px;
+    }
+
+    .navbar .right img {
+        height: 35px;
+    }
 }
