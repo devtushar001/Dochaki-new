@@ -7,7 +7,7 @@ const TextEditor = () => {
     const { content, setContent } = useContext(DochakiContext);
 
     return (
-        <div style={{fontFamily: 'Arial', height: "65vh"}}>
+        <div style={{fontFamily: 'Arial'}}>
             <JoditEditor
                 ref={editor}
                 value={content}
