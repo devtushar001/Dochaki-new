@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./ImageUploader.css";
 import { toast } from "react-toastify";
+import { DochakiContext } from '../../Context/DochakiContext';
 
 const ImageUploader = () => {
     const [image, setImage] = useState(null);
     const [images, setImages] = useState([]);
+    const { imageData, setImageData } = useContext(DochakiContext);
 
     // Fetch images from the backend
     const fetchImages = async () => {
         try {
             const response = await fetch("http://localhost:30017/api/v1/images/image");
-            if (!response.ok) {
-                throw new Error("Failed to fetch images");
-            }
+            if (!response.ok) throw new Error("Failed to fetch images");
+
             const data = await response.json();
             setImages(data);
         } catch (error) {
@@ -38,14 +39,11 @@ const ImageUploader = () => {
                 body: formData,
             });
 
-            if (!response.ok) {
-                throw new Error("Upload failed");
-            }
+            if (!response.ok) throw new Error("Upload failed");
 
             const data = await response.json();
             toast.success(data.message);
-            window.location.reload();
-            // fetchImages();
+            fetchImages(); // Refresh the UI instead of reloading
         } catch (error) {
             toast.error(error.message);
         }
@@ -53,22 +51,14 @@ const ImageUploader = () => {
 
     // Handle Image Delete
     const handleDelete = async (id) => {
-        console.log(id);
-        const confirmDelete = window.confirm("Are you sure you want to delete this image?");
-        if (!confirmDelete) return;
+        if (!window.confirm("Are you sure you want to delete this image?")) return;
 
         try {
-            const response = await fetch("http://localhost:30017/api/v1/images/delete", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ id })
+            const response = await fetch(`http://localhost:30017/api/v1/images/delete/${id}`, {
+                method: "DELETE", // Changed to DELETE method
             });
 
-            if (!response.ok) {
-                throw new Error("Failed to delete image");
-            }
+            if (!response.ok) throw new Error("Failed to delete image");
 
             toast.success("Image deleted successfully!");
             fetchImages(); // Refresh images after deletion
@@ -95,7 +85,9 @@ const ImageUploader = () => {
                                 <img src={img.imageUrl} alt="Uploaded" width="150px" />
                                 <div className="buttons">
                                     <button onClick={() => handleDelete(img._id)}>Delete</button>
-                                    <button>Use</button>
+                                    <button onClick={() => setImageData([...imageData, img.imageUrl])}>
+                                        Use
+                                    </button>
                                 </div>
                             </div>
                         ))}

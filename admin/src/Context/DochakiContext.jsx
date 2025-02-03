@@ -4,11 +4,21 @@ export const DochakiContext = createContext(null);
 
 const DochakiContextProvider = ({ children }) => {
     const [imageData, setImageData] = useState([])
-
+    const [content, setContent] = useState('');
     const contextValue = {
         imageData,
-        setImageData
+        setImageData,
+        content,
+        setContent
     };
+
+    useEffect(() => {
+        console.log(content);
+    }, [content]);
+
+    useEffect(() => {
+        console.log(imageData);
+    }, [imageData]);
 
     return (
         <DochakiContext.Provider value={contextValue}>
