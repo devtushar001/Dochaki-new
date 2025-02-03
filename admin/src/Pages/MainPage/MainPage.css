@@ -1,0 +1,13 @@
+.main-page {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.main-page button {
+    padding: 7px 20px;
+    cursor: pointer;
+}
