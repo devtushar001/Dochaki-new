@@ -8,6 +8,7 @@ const AddItem = () => {
     const { content, imageData } = useContext(DochakiContext);
     const [data, setData] = useState({
         content: content,
+        category: 'Universal',
         images: imageData
     });
 

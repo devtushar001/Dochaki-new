@@ -5,6 +5,7 @@ import cloudinarySetup from './Config/cloudinarySetup.js';
 import connectDB from './Config/connectDb.js';
 import imageRouter from './Routes/imageRoutes.js';
 import projectRouter from './Routes/projectRoutes.js';
+import categoryRouter from './Routes/categoryRoutes.js';
 
 dotenv.config(); // Load environment variables
 
@@ -27,6 +28,7 @@ connectDB(mongo_url);
 // Routes
 app.use('/api/v1/images', imageRouter);
 app.use('/api/v1/project', projectRouter);
+app.use('/api/v1/category', categoryRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
