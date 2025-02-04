@@ -1,0 +1,52 @@
+.add-category .set-category-data .category-image img {
+    width: 230px;
+}
+
+.add-category .set-category-data {
+    height: 330px;
+    padding: 40px;
+    margin: 40px;
+    border: 1px solid gray;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.add-category .set-category-data .category-image,
+.add-category .set-category-data .name-container {
+    padding: 30px;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-category .set-category-data .category-image input {
+    margin-top: 15px;
+    width: 222px;
+    height: 35px;
+}
+
+.add-category .set-category-data .name-container input {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 19px;
+    width: 100%;
+    padding: 3px 12px;
+    border-radius: 19px;
+    border: 1px solid rgb(0, 125, 226);
+    outline-color: rgb(0, 70, 127);
+    height: 35px;
+}
+
+.add-category .set-category-data .name-container button {
+    margin-top: 30px;
+    width: 100%;
+    height: 37px;
+    border-radius: 19px;
+    border: none;
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 19px;
+}
