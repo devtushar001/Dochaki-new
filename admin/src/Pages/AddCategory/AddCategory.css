@@ -1,52 +1,51 @@
-.add-category .set-category-data .category-image img {
-    width: 230px;
+.add-category {
+    box-sizing: border-box;
 }
 
-.add-category .set-category-data {
-    height: 330px;
-    padding: 40px;
-    margin: 40px;
-    border: 1px solid gray;
+.add-category .category-box {
+    margin: 30px;
+    height: auto;
+    border: 1px solid rgb(189, 189, 189);
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: 0.3fr 1fr;
 }
 
-.add-category .set-category-data .category-image,
-.add-category .set-category-data .name-container {
-    padding: 30px;
-    border: 1px solid gray;
+.add-category .category-box .add-category {
+    border-right: 1px solid rgb(201, 201, 201);
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.add-category .set-category-data .category-image input {
-    margin-top: 15px;
-    width: 222px;
-    height: 35px;
+.add-category .category-box .add-category img,
+.add-category .category-box .add-category input,
+.add-category .category-box .add-category button {
+    width: 90%;
+    margin: 10px 0;
 }
 
-.add-category .set-category-data .name-container input {
+.add-category .category-box .add-category input,
+.add-category .category-box .add-category button {
+    height: 34px;
+    border-radius: 19px;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 19px;
-    width: 100%;
-    padding: 3px 12px;
-    border-radius: 19px;
-    border: 1px solid rgb(0, 125, 226);
-    outline-color: rgb(0, 70, 127);
-    height: 35px;
 }
 
-.add-category .set-category-data .name-container button {
-    margin-top: 30px;
-    width: 100%;
-    height: 37px;
-    border-radius: 19px;
-    border: none;
-    background-color: black;
-    color: #fff;
+.add-category .category-box .add-category input {
+    border: 1px solid rgb(0, 166, 255);
+    padding-left: 15px;
+    outline-color: rgb(0, 70, 117);
+}
+
+.add-category .category-box .add-category button {
     cursor: pointer;
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 19px;
+    background-color: rgb(0, 70, 117);
+    color: #fff;
+    border: none;
+    transition: all ease-in-out 0.3s;
+}
+
+.add-category .category-box .add-category button:active {
+    opacity: 0.85;
 }

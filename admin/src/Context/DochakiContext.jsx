@@ -3,13 +3,16 @@ import React, { useState, createContext, useEffect } from "react";
 export const DochakiContext = createContext(null);
 
 const DochakiContextProvider = ({ children }) => {
-    const [imageData, setImageData] = useState([])
+    const [imageData, setImageData] = useState([]);
+    const [catImage, setCatImage] = useState('');
     const [content, setContent] = useState('');
     const contextValue = {
         imageData,
         setImageData,
         content,
-        setContent
+        setContent,
+        catImage,
+        setCatImage
     };
 
     useEffect(() => {
