@@ -1,20 +1,17 @@
-import React, { useState, useContext } from "react";
-import ImageUploader from "../../Components/ImageUploader/ImageUploader";
+import { useContext, useState } from "react";
+// import ImageUploader from "./ImageUploader";
+import './AddCategory.css'
+import ImageUploader from '../../Components/ImageUploader/ImageUploader'
 import { DochakiContext } from "../../Context/DochakiContext";
-import "./AddCategory.css";
+import { toast } from "react-toastify";
 
 const AddCategory = () => {
-  const { imageData } = useContext(DochakiContext);
-  const [catImage, setCatImage] = useState('');
-  const [data, setData] = useState({
-    name: "",
-    img: '',
-  });
-
+  const { imageData, setImageData } = useContext(DochakiContext);
+  const [data, setData] = useState({ name: "", img: imageData[imageData.length - 1] });
 
   const handleSubmit = async () => {
     if (!data.name || !data.img) {
-      alert("Please provide category name and image");
+      toast.error("Please provide category name and image");
       return;
     }
 
@@ -30,10 +27,10 @@ const AddCategory = () => {
       const result = await response.json();
 
       if (response.ok) {
-        alert("Category added successfully!");
+        toast.success("Category added successfully!");
         setData({ name: "", img: "" }); // Reset form
       } else {
-        alert(result.message || "Failed to add category");
+        toast.error(result.message || "Failed to add category");
       }
     } catch (error) {
       console.error("Error adding category:", error);
@@ -45,12 +42,19 @@ const AddCategory = () => {
     <div className="add-category">
       <div className="category-box">
         <div className="add-category">
-            <img src={imageData[imageData.length - 1]} alt="" />
-            <input type="text" name="name" id="name" />
-            <button>Submit</button>
+          {imageData.length > 0 && <img src={imageData[imageData.length - 1]} alt="Category" />}
+          <input
+            onChange={(e) => setData((prev) => ({ ...prev, name: e.target.value }))}
+            placeholder="Category name"
+            type="text"
+            name="name"
+            id="name"
+            value={data.name}
+          />
+          <button onClick={handleSubmit}>Submit</button>
         </div>
         <div className="get-category">
-
+          {/* Show all categories */}
         </div>
       </div>
       <ImageUploader />
