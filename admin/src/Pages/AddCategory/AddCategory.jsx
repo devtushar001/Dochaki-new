@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 // import ImageUploader from "./ImageUploader";
 import './AddCategory.css'
 import ImageUploader from '../../Components/ImageUploader/ImageUploader'
@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 const AddCategory = () => {
   const { imageData, setImageData } = useContext(DochakiContext);
   const [data, setData] = useState({ name: "", img: imageData[imageData.length - 1] });
+  const [categoryData, setCategoryData] = useState([]);
 
   const handleSubmit = async () => {
     if (!data.name || !data.img) {
@@ -25,7 +26,6 @@ const AddCategory = () => {
       });
 
       const result = await response.json();
-
       if (response.ok) {
         toast.success("Category added successfully!");
         setData({ name: "", img: "" }); // Reset form
@@ -33,10 +33,37 @@ const AddCategory = () => {
         toast.error(result.message || "Failed to add category");
       }
     } catch (error) {
-      console.error("Error adding category:", error);
-      alert("Something went wrong! Please try again.");
+      toast.error("Something went wrong! Please try again.");
     }
   };
+
+  const fetchCategories = async () => {
+    try {
+      const response = await fetch("http://localhost:30017/api/v1/category/get-all", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+
+      if (response.ok) {
+        toast.success("Category fetched successfully!");
+      } else {
+        toast.error(result.message || "Failed to add category");
+      }
+
+      const result = await response.json();
+      setCategoryData(result);
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
+  useEffect(() => {
+    fetchCategories();
+    console.log(categoryData);
+  }, []);
 
   return (
     <div className="add-category">
@@ -54,7 +81,20 @@ const AddCategory = () => {
           <button onClick={handleSubmit}>Submit</button>
         </div>
         <div className="get-category">
-          {/* Show all categories */}
+          {categoryData?.length > 0 ? (
+            categoryData.map((item) => (
+              <div className="ctg-box" key={item.id || item.name}> {/* Use a unique key */}
+                <img src={item.img} alt={item.name} />
+                <p>{item.name}</p>
+                <div className="buttons">
+                  <button>Delete</button>
+                  <button>Update</button>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>No categories available</p>
+          )}
         </div>
       </div>
       <ImageUploader />

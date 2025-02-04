@@ -1,6 +1,9 @@
 .add-category {
     box-sizing: border-box;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
+
+
 
 .add-category .category-box {
     margin: 30px;
@@ -48,4 +51,78 @@
 
 .add-category .category-box .add-category button:active {
     opacity: 0.7;
+}
+
+
+
+.get-category {
+    max-height: 300px; /* Adjust height as needed */
+    overflow-y: auto;  /* Enables vertical scrolling */
+    border: 1px solid #ddd; /* Optional: Adds a border */
+    padding: 10px; /* Optional: Adds spacing */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #888 #f1f1f1; /* Custom scrollbar colors */
+  }
+  
+  /* Custom Scrollbar for Webkit Browsers (Chrome, Edge, Safari) */
+  .get-category::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .get-category::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .get-category::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .get-category::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  .add-category .category-box .get-category {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.add-category .category-box .get-category .ctg-box {
+    border: 1px solid rgb(184, 220, 239);
+    padding: 5px;
+    width: 240px;
+    height: 340px;
+    overflow: hidden;
+}
+
+.add-category .category-box .get-category .ctg-box .buttons {
+    background-color: rgb(0, 73, 118);
+    transform: translateY(50px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    height: 50px;
+    transition: all ease-in-out 0.3s;
+}
+
+.add-category .category-box .get-category .ctg-box .buttons button {
+   height: 35px;
+   margin: 0 5px;
+   cursor: pointer;
+   border: none;
+   color: rgb(255, 94, 0);
+   background: transparent;
+   border:1px solid rgb(255, 94, 0);
+   border-radius: 19px;
+}
+.add-category .category-box .get-category .ctg-box:hover .buttons {
+    transform: translateY(0px);
+}
+
+.add-category .category-box .get-category .ctg-box img {
+    width: 100%;
 }
