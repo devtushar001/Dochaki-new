@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-// import ImageUploader from "./ImageUploader";
 import './AddCategory.css'
 import ImageUploader from '../../Components/ImageUploader/ImageUploader'
 import { DochakiContext } from "../../Context/DochakiContext";
@@ -7,7 +6,7 @@ import { toast } from "react-toastify";
 
 const AddCategory = () => {
   const { imageData, setImageData } = useContext(DochakiContext);
-  const [data, setData] = useState({ name: "", img: imageData[imageData.length - 1] });
+  const [data, setData] = useState({ name: "", img: "" });
   const [categoryData, setCategoryData] = useState([]);
 
   const handleSubmit = async () => {
@@ -28,7 +27,8 @@ const AddCategory = () => {
       const result = await response.json();
       if (response.ok) {
         toast.success("Category added successfully!");
-        setData({ name: "", img: "" }); // Reset form
+        setData({ name: "", img: "" });
+        fetchCategories(); // Refresh categories
       } else {
         toast.error(result.message || "Failed to add category");
       }
@@ -46,25 +46,42 @@ const AddCategory = () => {
         },
       });
 
+      const result = await response.json();
 
       if (response.ok) {
-        toast.success("Category fetched successfully!");
+        setCategoryData(result);
+        toast.success("Categories fetched successfully!");
       } else {
-        toast.error(result.message || "Failed to add category");
+        toast.error(result.message || "Failed to fetch categories");
       }
-
-      const result = await response.json();
-      setCategoryData(result);
     } catch (error) {
-      toast.error(error.message)
+      toast.error(error.message);
     }
-  }
+  };
 
   useEffect(() => {
     fetchCategories();
-    console.log(categoryData);
   }, []);
 
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:30017/api/v1/category/delete/${id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        toast.success("Category deleted successfully!");
+        fetchCategories(); // Refresh category list
+      } else {
+        toast.error("Failed to delete category");
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+useEffect(() => {
+  setData((prev) => ({...prev, img: imageData.length > 0 ? imageData[imageData.length - 1] : ""}))
+}, [imageData]);
   return (
     <div className="add-category">
       <div className="category-box">
@@ -83,11 +100,11 @@ const AddCategory = () => {
         <div className="get-category">
           {categoryData?.length > 0 ? (
             categoryData.map((item) => (
-              <div className="ctg-box" key={item.id || item.name}> {/* Use a unique key */}
+              <div className="ctg-box" key={item.id || item.name}>
                 <img src={item.img} alt={item.name} />
                 <p>{item.name}</p>
                 <div className="buttons">
-                  <button>Delete</button>
+                  <button onClick={() => handleDelete(item.id)}>Delete</button>
                   <button>Update</button>
                 </div>
               </div>

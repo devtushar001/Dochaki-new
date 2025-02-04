@@ -7,6 +7,7 @@
 
 .add-category .category-box {
     margin: 30px;
+    min-height: 440px;
     height: auto;
     border: 1px solid rgb(189, 189, 189);
     display: grid;
@@ -56,7 +57,7 @@
 
 
 .get-category {
-    max-height: 300px; /* Adjust height as needed */
+    max-height: 370px; /* Adjust height as needed */
     overflow-y: auto;  /* Enables vertical scrolling */
     border: 1px solid #ddd; /* Optional: Adds a border */
     padding: 10px; /* Optional: Adds spacing */
