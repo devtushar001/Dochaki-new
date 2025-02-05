@@ -64,9 +64,14 @@ const AddCategory = () => {
   }, []);
 
   const handleDelete = async (id) => {
+    console.log(id)
     try {
-      const response = await fetch(`http://localhost:30017/api/v1/category/delete/${id}`, {
-        method: "DELETE",
+      const response = await fetch(`http://localhost:30017/api/v1/category/delete`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id })
       });
 
       if (response.ok) {
@@ -99,12 +104,12 @@ const AddCategory = () => {
         </div>
         <div className="get-category">
           {categoryData?.length > 0 ? (
-            categoryData.map((item) => (
-              <div className="ctg-box" key={item.id || item.name}>
+            categoryData.map((item, i) => (
+              <div className="ctg-box" key={i}>
                 <img src={item.img} alt={item.name} />
                 <p>{item.name}</p>
                 <div className="buttons">
-                  <button onClick={() => handleDelete(item.id)}>Delete</button>
+                  <button onClick={() => handleDelete(item._id)}>Delete</button>
                   <button>Update</button>
                 </div>
               </div>

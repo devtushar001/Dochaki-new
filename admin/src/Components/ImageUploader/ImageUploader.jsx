@@ -51,11 +51,16 @@ const ImageUploader = () => {
 
     // Handle Image Delete
     const handleDelete = async (id) => {
+        console.log(id)
         if (!window.confirm("Are you sure you want to delete this image?")) return;
 
         try {
-            const response = await fetch(`http://localhost:30017/api/v1/images/delete/${id}`, {
-                method: "DELETE", // Changed to DELETE method
+            const response = await fetch(`http://localhost:30017/api/v1/images/delete`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id })
             });
 
             if (!response.ok) throw new Error("Failed to delete image");
