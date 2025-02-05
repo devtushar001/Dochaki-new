@@ -3,7 +3,8 @@ import { DochakiContext } from "../../Context/DochakiContext";
 import './CategoryBox.css';
 
 const CategoryBox = () => {
-   const { categories } = useContext(DochakiContext)
+   const { categories } = useContext(DochakiContext);
+   
 
    useEffect(() => {
       console.log(categories)

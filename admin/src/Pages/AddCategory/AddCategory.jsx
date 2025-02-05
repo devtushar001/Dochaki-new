@@ -79,9 +79,9 @@ const AddCategory = () => {
       toast.error(error.message);
     }
   };
-useEffect(() => {
-  setData((prev) => ({...prev, img: imageData.length > 0 ? imageData[imageData.length - 1] : ""}))
-}, [imageData]);
+  useEffect(() => {
+    setData((prev) => ({ ...prev, img: imageData.length > 0 ? imageData[imageData.length - 1] : "" }))
+  }, [imageData]);
   return (
     <div className="add-category">
       <div className="category-box">
