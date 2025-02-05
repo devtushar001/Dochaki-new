@@ -14,8 +14,35 @@ const AddBlogs = () => {
         }
     }, [imageData, content]);
 
+    const submitBlog = async () => {
+        console.log(content);
+        console.log(imageData)
+        try {
+            const response = await fetch(`http://localhost:30017/api/v1/blog/create`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ content, imageData })
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error("Error submitting blog:", error);
+        }
+    };
+
+    // http://localhost:30017/api/v1/blog/get-blogs
+
+
     return (
         <div className="add-blogs">
+            <button onClick={submitBlog}>Submit</button>
             <h2>Start writing your blog.</h2>
             <TextEditor />
             <div className="gallery-images">
