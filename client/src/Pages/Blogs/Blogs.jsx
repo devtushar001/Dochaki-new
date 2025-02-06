@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import JoditEditor from 'jodit-react';
+import './Blogs.css';
 
 const Blogs = () => {
    const [data, setData] = useState([]);
@@ -17,6 +19,7 @@ const Blogs = () => {
          }
 
          const data = await response.json();
+         console.log(data.fetchAllBlogs)
          setData(data.fetchAllBlogs);
       } catch (error) {
          console.error("Error fetching blogs:", error);
@@ -28,15 +31,17 @@ const Blogs = () => {
    }, []);
 
    return (
-      <>
-         {data.map((item, i) => {
-            return (
-               <div key={i}>
-                  {item}
-               </div>
-            )
-         })}
-      </>
+      <div className="content-container">
+         {data.map((content, i) => (
+            // <div key={i} style={{ marginBottom: "20px" }}>
+            //    <div dangerouslySetInnerHTML={{ __html: content.content }} />
+            //    <button onClick={() => deleteContent(content._id)}> Delete </button>
+            // </div>
+            <div>
+               <img src={content.gallery[0]} alt="" />
+            </div>
+         ))}
+      </div>
    )
 };
 
