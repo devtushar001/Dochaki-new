@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import JoditEditor from 'jodit-react';
-import './Blogs.css';
+import React, { useEffect, useState } from "react";
+import "./Blogs.css";
 
 const Blogs = () => {
    const [data, setData] = useState([]);
+
    const getAllBlogs = async () => {
       try {
          const response = await fetch(`http://localhost:30017/api/v1/blog/get-blogs`, {
@@ -19,7 +18,7 @@ const Blogs = () => {
          }
 
          const data = await response.json();
-         console.log(data.fetchAllBlogs)
+         console.log(data.fetchAllBlogs);
          setData(data.fetchAllBlogs);
       } catch (error) {
          console.error("Error fetching blogs:", error);
@@ -31,18 +30,19 @@ const Blogs = () => {
    }, []);
 
    return (
-      <div className="content-container">
+      <div className="blogs-container">
          {data.map((content, i) => (
-            // <div key={i} style={{ marginBottom: "20px" }}>
-            //    <div dangerouslySetInnerHTML={{ __html: content.content }} />
-            //    <button onClick={() => deleteContent(content._id)}> Delete </button>
-            // </div>
-            <div>
-               <img src={content.gallery[0]} alt="" />
+            <div key={i} className="blog-card">
+               <img src={content.gallery[0]} alt={content.title} className="blog-image" />
+               <div className="blog-details">
+                  <h2 className="blog-title">{content.title}</h2>
+                  <p className="blog-category">{content.category}</p>
+                  <button className="view-button">View</button>
+               </div>
             </div>
          ))}
       </div>
-   )
+   );
 };
 
 export default Blogs;

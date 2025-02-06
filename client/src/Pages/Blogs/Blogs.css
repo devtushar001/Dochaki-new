@@ -1,3 +1,61 @@
-.content-container {
-    margin-top: 12px;
+.blogs-container {
+    width: 80vw;
+    margin: 85px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    color: #057cab;
+    transition: all ease-in-out 0.3s;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.blogs-container .blog-card {
+    height: 380px;
+    width: 100%;
+    border: 1px solid #057cab;
+    overflow: hidden;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.blogs-container .blog-card img {
+    margin-top: 15px;
+    width: 95%;
+    transition: all ease-in-out 0.3s;
+}
+
+.blogs-container .blog-card .blog-details {
+    background: rgba(222, 222, 222, 0.439);
+    backdrop-filter: blur(25px);
+    position: absolute;
+    bottom: -200px;
+    left: 0;
+    right: 0;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+}
+
+.blogs-container .blog-card:hover .blog-details {
+    padding: 15px;
+    bottom: 0;
+    top: 0;
+    transition: all ease-in-out 0.3s;
+}
+
+.blogs-container .blog-card:hover .blog-details button {
+    width: 100%;
+    height: 35px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border: none;
+    background:#057cab;
+    color: #fff;
+    transition: all ease-in-out 0.3s;
 }
