@@ -9,13 +9,14 @@
 
 .single-category #cat-box {
     width: 410px;
+    height: 410px;
     overflow: hidden;
     border: 1px solid gray;
     transition: all ease-in-out 0.3s;
+    position: relative;
 }
 
 .single-category #cat-box .name {
-    transform: translateY(50px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,10 +26,15 @@
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 19px;
     transition: all ease-in-out 0.2s;
+    z-index: 10;
+    position: absolute;
+    bottom: -45px;
+    right: 0;
+    left: 0;
 }
 
 .single-category #cat-box:hover .name {
-    transform: translateY(-0px);
+    bottom: 0px;
 }
 
 .single-category #cat-box:hover {
@@ -36,5 +42,5 @@
 }
 
 .single-category #cat-box img {
-    width: 90%;
+    width: 100%;
 }
