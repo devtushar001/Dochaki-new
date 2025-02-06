@@ -33,7 +33,6 @@ export const addBlogController = async (req, res) => {
 export const getAllBlogsController = async (req, res) => {
     try {
         const fetchAllBlogs = await blogModel.find();
-        console.log(fetchAllBlogs)
         if (!fetchAllBlogs) {
             return res.status(501).json({
                 success: false,

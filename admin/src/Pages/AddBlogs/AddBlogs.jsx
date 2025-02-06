@@ -37,7 +37,6 @@ const AddBlogs = () => {
         }
     };
 
-    // http://localhost:30017/api/v1/blog/get-blogs
 
 
     return (
