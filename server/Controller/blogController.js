@@ -1,19 +1,16 @@
 import blogModel from "../Models/blogModel.js";
 
 export const addBlogController = async (req, res) => {
-    // title
-    // category
-    // content
-    // gallery
-    // searchkey
+    console.log(req.body)
+
     try {
-        const { title, category, content, imageData, searchkey } = req.body;
+        const { content, imageData, newSearchKeys, title, category } = req.body;
         const newBlog = new blogModel({
             title,
             category,
-            searchkey,
             content,
-            gallery: imageData
+            gallery: imageData,
+            searchkey: newSearchKeys
         });
 
         await newBlog.save();

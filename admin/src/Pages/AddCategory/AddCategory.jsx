@@ -5,9 +5,9 @@ import { DochakiContext } from "../../Context/DochakiContext";
 import { toast } from "react-toastify";
 
 const AddCategory = () => {
-  const { imageData, setImageData } = useContext(DochakiContext);
+  const { imageData, setImageData, categoryData } = useContext(DochakiContext);
   const [data, setData] = useState({ name: "", img: "" });
-  const [categoryData, setCategoryData] = useState([]);
+  // const [categoryData, setCategoryData] = useState([]);
 
   const handleSubmit = async () => {
     if (!data.name || !data.img) {
@@ -36,32 +36,6 @@ const AddCategory = () => {
       toast.error("Something went wrong! Please try again.");
     }
   };
-
-  const fetchCategories = async () => {
-    try {
-      const response = await fetch("http://localhost:30017/api/v1/category/get-all", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setCategoryData(result);
-        toast.success("Categories fetched successfully!");
-      } else {
-        toast.error(result.message || "Failed to fetch categories");
-      }
-    } catch (error) {
-      toast.error(error.message);
-    }
-  };
-
-  useEffect(() => {
-    fetchCategories();
-  }, []);
 
   const handleDelete = async (id) => {
     console.log(id)
