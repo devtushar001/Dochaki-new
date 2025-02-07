@@ -30,7 +30,7 @@ export const getAllCategoryController = async (req, res) => {
 
 export const deleteCategoryController = async (req, res) => {
     try {
-        const { id } = req.params;
+        const { id } = req.body;
 
         const category = await categoryModel.findById(id);
         if (!category) {
