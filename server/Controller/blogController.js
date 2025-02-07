@@ -1,7 +1,6 @@
 import blogModel from "../Models/blogModel.js";
 
 export const addBlogController = async (req, res) => {
-    console.log(req.body)
 
     try {
         const { content, imageData, newSearchKeys, title, category } = req.body;
@@ -14,9 +13,6 @@ export const addBlogController = async (req, res) => {
         });
 
         await newBlog.save();
-
-        console.log(newBlog)
-
         if (!newBlog) {
             return res.status(501).json({
                 success: false,

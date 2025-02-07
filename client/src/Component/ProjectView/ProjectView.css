@@ -1,0 +1,22 @@
+.project-view {
+    width: 75vw;
+    margin: 120px auto 30px auto ;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 1.3rem;
+}
+
+.project-view img {
+    height: 320px;
+    transition: all ease-in-out 0.4s;
+}
+
+.project-view .images-container img:hover {
+   transform: translateY(-7px);
+}
+
+.project-view .images-container {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    flex-wrap: wrap;
+}

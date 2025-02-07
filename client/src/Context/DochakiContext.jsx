@@ -7,6 +7,7 @@ const DochakiContextProvider = ({ children }) => {
     const [navbar, setNavbar] = useState(false);
     const [categories, setCategories] = useState([]);
     const [blogData, setBlogData] = useState([]);
+    const [projectData, setProjectData] = useState([]);
 
     const getAllBlogs = async () => {
         try {
@@ -61,12 +62,38 @@ const DochakiContextProvider = ({ children }) => {
         fetchCategories();
     }, [])
 
+    const getProjectData = async () => {
+        try {
+           const response = await fetch("http://localhost:30017/api/v1/project/get-all", {
+              method: 'GET',
+              headers: {
+                 'Content-Type': 'application/json'
+              }
+           });
+  
+           if (!response.ok) {
+              throw new Error("Failed to fetch projects");
+           }
+  
+           const fetchedData = await response.json();
+           setProjectData(fetchedData.projects);
+        } catch (error) {
+           console.error("Error fetching projects:", error);
+        }
+     };
+  
+     useEffect(() => {
+        getProjectData();
+     }, []);
+
 
     const contextValue = {
         navbar,
         setNavbar,
         categories,
-        blogData
+        blogData,
+        blogData,
+        projectData
     };
 
     return (

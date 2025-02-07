@@ -49,10 +49,8 @@ export const getImageController = async (req, res) => {
 
 
 export const deleteImageController = async (req, res) => {
-  console.log(req.body)
   try {
     const { id } = req.body;
-    console.log(id)
     const image = await imageModel.findById(id);
     if (!image) {
       return res.status(404).json({ message: "Image not found" });
@@ -64,7 +62,6 @@ export const deleteImageController = async (req, res) => {
 
     res.status(200).json({ message: "Image deleted successfully" });
   } catch (error) {
-    console.error("Error deleting image:", error);
     res.status(500).json({ error: "Image deletion failed", details: error.message });
   }
 };

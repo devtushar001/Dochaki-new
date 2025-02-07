@@ -1,0 +1,22 @@
+.project-container {
+    margin: 120px auto 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 76vw;
+    gap: 12px;
+}
+
+.project-container .single-project {
+    height: 320px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all ease-out 0.3s;
+}
+
+.project-container .single-project:hover {
+    transform: translateY(-5px);
+}
+
+.project-container .single-project img {
+    height: 100%;
+}
