@@ -2,9 +2,14 @@ import React, { useContext } from "react";
 import { imageData } from "../../assets/dochakiData";
 import "./Navbar.css";
 import { DochakiContext } from "../../Context/DochakiContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
    const { navbar, setNavbar } = useContext(DochakiContext);
+
+   const reloadWebPage = () => {
+      window.location.reload()
+   };
 
    return (
       <div className="navbar">
@@ -16,12 +21,12 @@ const Navbar = () => {
             {!navbar ?
                <>
                   <img src={imageData.search_icon} alt="Search Icon" />
-                  <img src={imageData.location_icon} alt="Location Icon" />
+                  <Link to='/contact-us'> <img src={imageData.location_icon} alt="Location Icon" /></Link>
                </>
                : ""}
          </div>
          <div className="right">
-            <img src={imageData.dochaki_logo} alt="Dochaki Logo" />
+            <img onClick={reloadWebPage} src={imageData.dochaki_logo} alt="Dochaki Logo" />
          </div>
       </div>
    );

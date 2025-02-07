@@ -30,7 +30,7 @@ const Footer = () => {
                   <ul>
                      <Link className="no-style-link" to='/'><li onClick={scrollToTop}>Home</li></Link>
                      <Link className="no-style-link" to='/about-us'><li onClick={scrollToTop}>About Us</li></Link>
-                     <Link className="no-style-link" to='/myorders'> <li onClick={scrollToTop}>My Orders</li></Link>
+                     <Link className="no-style-link" to='/blogs'> <li onClick={scrollToTop}>Blogs</li></Link>
                      <Link className="no-style-link" to='/privacy-policy'><li onClick={scrollToTop}>Privecy Policy</li></Link>
                   </ul>
                </div>

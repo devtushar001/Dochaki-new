@@ -1,0 +1,228 @@
+/* General Styles for About Us */
+.about-us-container {
+    margin-top: 120px;
+    font-family: 'Arial', sans-serif;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-us-header {
+    width: 70%;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .about-us-header h1 {
+    font-size: 36px;
+    color: #333;
+  }
+  
+  .about-us-header p {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .about-us-intro {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  
+  .about-us-text h2 {
+    font-size: 30px;
+    border-bottom: 1px solid rgb(0, 92, 153);
+    padding: 20px 0px;
+    color: #333;
+  }
+  
+  .about-us-text p {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+  }
+  
+  .about-us-header {
+    max-width: 100%;
+  }
+  
+  .about-us-header img {
+    width: 90%;
+    border-radius: 8px;
+  }
+  
+  .about-us-services {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .about-us-services h2 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .service-card {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .service-card h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .service-card p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .about-us-brands {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .about-us-brands h2 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .brands-logos img {
+    margin: 0 15px;
+    width: 120px;
+  }
+  
+  .about-us-footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  /* Media Queries for Responsiveness */
+  
+  /* For tablets and below (screen width less than or equal to 768px) */
+  @media (max-width: 768px) {
+    .about-us-container {
+      padding: 20px;
+    }
+  
+    .about-us-header h1 {
+      font-size: 28px;
+    }
+  
+    .about-us-header p {
+      font-size: 16px;
+    }
+  
+    .about-us-intro {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .about-us-text h2 {
+      font-size: 24px;
+    }
+  
+    .about-us-text p {
+      font-size: 14px;
+    }
+    .about-us-image {
+      max-width: 768px;
+    }
+  
+    .about-us-image img {
+      max-width: 80%;
+    }
+  
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+  
+    .service-card h3 {
+      font-size: 18px;
+    }
+  
+    .service-card p {
+      font-size: 14px;
+    }
+  
+    .about-us-brands img {
+      width: 100px;
+      margin: 0 10px;
+    }
+  
+    .about-us-footer {
+      font-size: 16px;
+    }
+  }
+  
+  /* For mobile devices (screen width less than or equal to 480px) */
+  @media (max-width: 480px) {
+    .about-us-container {
+      padding: 10px;
+    }
+  
+    .about-us-header h1 {
+      font-size: 24px;
+    }
+  
+    .about-us-header p {
+      font-size: 14px;
+    }
+  
+    .about-us-intro {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .about-us-text h2 {
+      font-size: 20px;
+    }
+  
+    .about-us-text p {
+      font-size: 12px;
+    }
+  
+    .about-us-image img {
+      width: 90%;
+    }
+  
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  
+    .service-card h3 {
+      font-size: 16px;
+    }
+  
+    .service-card p {
+      font-size: 12px;
+    }
+  
+    .about-us-brands img {
+      width: 80px;
+      margin: 0 8px;
+    }
+  
+    .about-us-footer {
+      font-size: 14px;
+    }
+  }

@@ -13,6 +13,9 @@ import Services from './Pages/Services/Services';
 import SingleBlog from './Component/SingleBlog/SingleBlog';
 import SingleProject from './Component/SingleProject/SingleProject';
 import ProjectView from './Component/ProjectView/ProjectView';
+import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
+import AboutUs from './Pages/AboutUs/AboutUs';
+import ContactUs from './Pages/ContactUs/ContactUs';
 
 function App() {
   const { navbar } = useContext(DochakiContext);
@@ -29,6 +32,9 @@ function App() {
         <Route path='/blogs/:blogId' element={<SingleBlog />} />
         <Route path='/shop' element={<Shop />} />
         <Route path='/services' element={<Services />} />
+        <Route path='/privacy-policy' element={<PrivacyPolicy/>} />
+        <Route path='/about-us' element={<AboutUs/>} />
+        <Route path='/contact-us' element={<ContactUs/>} />
       </Routes>
       <Footer />
     </>
