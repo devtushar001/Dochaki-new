@@ -6,10 +6,10 @@ body {
 Link {
     text-decoration: none;
     list-style: none;
-    color: gray;
+    color: rgb(0, 0, 0);
 }
 
 .no-style-link {
     text-decoration: none;
-    color: gray;
+    color: rgb(43, 42, 42);
 }

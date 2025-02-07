@@ -10,6 +10,8 @@ import Projects from './Pages/Projects/Projects';
 import Blogs from './Pages/Blogs/Blogs';
 import Shop from './Pages/Shop/Shop';
 import Services from './Pages/Services/Services';
+import SingleBlog from './Component/SingleBlog/SingleBlog';
+import SingleProject from './Component/SingleProject/SingleProject';
 
 function App() {
   const { navbar } = useContext(DochakiContext);
@@ -20,7 +22,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/projects' element={<Projects />} />
+        <Route path='/projects/:projectId' element={<SingleProject/>} />
         <Route path='/blogs' element={<Blogs />} />
+        <Route path='/blogs/:blogId' element={<SingleBlog />} />
         <Route path='/shop' element={<Shop />} />
         <Route path='/services' element={<Services />} />
       </Routes>

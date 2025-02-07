@@ -6,6 +6,32 @@ export const DochakiContext = createContext(null);
 const DochakiContextProvider = ({ children }) => {
     const [navbar, setNavbar] = useState(false);
     const [categories, setCategories] = useState([]);
+    const [blogData, setBlogData] = useState([]);
+
+    const getAllBlogs = async () => {
+        try {
+            const response = await fetch(`http://localhost:30017/api/v1/blog/get-blogs`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log(data.fetchAllBlogs);
+            setBlogData(data.fetchAllBlogs);
+        } catch (error) {
+            console.error("Error fetching blogs:", error);
+        }
+    };
+
+    useEffect(() => {
+        getAllBlogs();
+    }, []);
 
     const fetchCategories = async () => {
         try {
@@ -39,7 +65,8 @@ const DochakiContextProvider = ({ children }) => {
     const contextValue = {
         navbar,
         setNavbar,
-        categories
+        categories,
+        blogData
     };
 
     return (
